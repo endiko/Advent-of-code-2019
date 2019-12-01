@@ -1,0 +1,14 @@
+{
+  "name": "advent-of-code-challenge-2019",
+  "version": "1.0.0",
+  "description": "Advent of code challenge 2019",
+  "main": "index.js",
+  "author": "Nadezhda Kogay <kogay.nadezhda@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha day-*/test.js"
+  },
+  "dependencies": {
+    "mocha": "^6.2.2"
+  }
+}
