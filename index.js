@@ -10,6 +10,7 @@ const part2 = require(`${path}/part2`);
 const data = fs.readFileSync(`${path}/input.txt`, 'utf8');
 
 console.log(part1(data));
+console.log(part2(data));
 
 // Day 2 part 2
 // console.log(part2(data, 19690720));
