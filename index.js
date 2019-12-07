@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const day = '05'; // Change a day number to get the result
+const day = '06'; // Change a day number to get the result
 
 const path = `./day-${day}`;
 
@@ -9,8 +9,8 @@ const part2 = require(`${path}/part2`);
 
 const data = fs.readFileSync(`${path}/input.txt`, 'utf8');
 
-// console.log(part1(data));
-// console.log(part2(data));
+console.log(part1(data));
+console.log(part2(data));
 
 // Day 2 part 2
 // console.log(part2(data, 19690720));
@@ -21,4 +21,4 @@ const data = fs.readFileSync(`${path}/input.txt`, 'utf8');
 
 // Day 5
 // console.log(part1(data, 1));
-console.log(part2(data, 5));
+// console.log(part2(data, 5));
