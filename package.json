@@ -9,6 +9,7 @@
     "test": "mocha day-*/test.js"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "mocha": "^6.2.2"
   }
 }
