@@ -10,7 +10,7 @@ const part2 = require(`${path}/part2`);
 const data = fs.readFileSync(`${path}/input.txt`, 'utf8');
 // const data = '3,15,3,16,1002,16,10,16,1,16,15,15,4,15,99,0,0';
 
-// console.log(part1(data));
+console.log(part1(data));
 console.log(part2(data));
 
 // Day 2 part 2
