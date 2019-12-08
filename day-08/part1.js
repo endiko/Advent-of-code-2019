@@ -1,18 +1,7 @@
+const getImageData = require('./getImage');
+
 module.exports = inputData => {
-  const imageData = [];
-  const imageLayersMap = [];
-
-  for (let i = 0; i < inputData.length; i += 25) {
-    imageData.push(inputData.slice(i, i + 25));
-  }
-
-  for (let i = 0; i < imageData.length; i += 6) {
-    let temp = [];
-    for (let j = i; j < i + 6; j++) {
-      temp.push(imageData[j]);
-    }
-    imageLayersMap.push(temp);
-  }
+  const imageLayersMap = getImageData(inputData);
 
   let digitsMap = new Map();
   let minDigitOfZero = Number.MAX_SAFE_INTEGER;

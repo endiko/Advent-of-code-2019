@@ -1,64 +1,48 @@
-const color = require('colors');
+const colors = require('colors');
+const getImageData = require('./getImage');
+
+const colorPrinting = arr => {
+  arr.forEach(line => {
+    let s = '';
+    line.forEach(el => {
+      if (el === '*') {
+        s += `${el.brightRed}`;
+      } else if (el === '#') {
+        s += `${el.brightGreen}`;
+      } else {
+        s += `${el} `;
+      }
+    });
+    console.log(s);
+  });
+};
 
 module.exports = inputData => {
-  const imageData = [];
-  const imageLayersMap = [];
-
-  for (let i = 0; i < inputData.length; i += 25) {
-    imageData.push(inputData.slice(i, i + 25));
-  }
-
-  for (let i = 0; i < imageData.length; i += 6) {
-    let temp = [];
-    for (let j = i; j < i + 6; j++) {
-      temp.push(imageData[j]);
-    }
-    imageLayersMap.push(temp);
-  }
+  const imageLayersMap = getImageData(inputData);
 
   let decodingImage = Array(6)
     .fill('')
     .map(() => Array(25).fill('.'));
 
-  let temp = [];
-  let l = 0;
-
-  while (l < 6) {
-    let s = 0;
-    while (s < 25) {
+  let layer = 0;
+  while (layer < 6) {
+    let line = 0;
+    while (line < 25) {
       let str = '.';
       for (let i = 0; i < imageLayersMap.length; i++) {
-        let layer = imageLayersMap[i];
-
-        if (layer[l][s] === '0') {
+        if (imageLayersMap[i][layer][line] === '0') {
           str = '*';
           break;
-        } else if (layer[l][s] === '1') {
+        } else if (imageLayersMap[i][layer][line] === '1') {
           str = '#';
           break;
         }
       }
-      decodingImage[l][s] = str;
-      s++;
+      decodingImage[layer][line] = str;
+      line++;
     }
-    l++;
+    layer++;
   }
 
-  function print(arr) {
-    arr.forEach(line => {
-      let s = '';
-      line.forEach(el => {
-        if (el === '*') {
-          s += `${el.brightRed}`;
-        } else if (el === '#') {
-          s += `${el.brightGreen}`;
-        } else {
-          s += `${el} `;
-        }
-      });
-      console.log(s.white);
-    });
-  }
-
-  return print(decodingImage);
+  return colorPrinting(decodingImage);
 };
