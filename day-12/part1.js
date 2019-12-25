@@ -15,11 +15,6 @@ module.exports = (inputData, N) => {
     });
   };
 
-  //   let moonsMap = new Map();
-  //   moons.forEach(moon => {
-  //     moonsMap.set(moon, [0, 0, 0])
-  //   });
-
   let moonsVelocities = Array(moons.length)
     .fill('')
     .map(() => Array(3).fill(0));
@@ -59,7 +54,6 @@ module.exports = (inputData, N) => {
     }
     moons = [...tempMoon];
     moonsVelocities = [...tempVelocity];
-    // moonsMap.push([...moons], [...moonsVelocities]);
     step++;
   }
   const calcEnergy = arr =>
